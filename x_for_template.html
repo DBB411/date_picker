@@ -1,0 +1,28 @@
+<!-- x_for_template -->
+<div>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+  <div x-data="init()">
+    <template x-for="(pq, index) in items" :key="index">
+      <div>
+        <div x-text="pq"></div>
+      </div>
+    </template>
+
+    <div @click="addItem()">
+      Add item
+    </div>
+  </div>
+
+  <script>
+    function init(){
+      return{
+        count: 0,
+        items: ['hello', 'hi'],
+        addItem(){
+          this.items.push('New' + this.count++)
+        }
+      }
+    }
+  </script>
+
+</div>
